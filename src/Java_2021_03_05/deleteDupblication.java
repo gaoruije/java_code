@@ -20,13 +20,12 @@ public class deleteDupblication {
         Node cur = head;
         while (cur != null) {
             // 比较相邻的值
-            if (cur.next != null && cur.val == cur.next.val) {
+            if (cur != null && cur.next != null && cur.val == cur.next.val) {
                 // 是重复节点，跳过,又因为重复节点不一定是一个，要就进行循环判定
                 while (cur != null && cur.next != null && cur.val == cur.next.val) {
                     cur = cur.next;
                 }
                 //出了里边的这个循环就说明，找到了那个不重复的节点了
-                cur = cur.next;
             } else {// 不是重复节点，直接插入到创建的链表的里边即可
                 // 还是为了不破坏原链表，创建一个新的节点来保存原链表中要插入的节点值
                 newTail.next = new Node(cur.val);
@@ -38,5 +37,12 @@ public class deleteDupblication {
         }
         // 上边就已经将原链表找完了，返回新的链表的头节点
         return newHead.next;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("原来的链表是：");
+        createNodeList.print(createNodeList.createNodeList());
+        System.out.println("修改后的链表为：");
+        createNodeList.print(deleteAllNode(createNodeList.createNodeList()));
     }
 }

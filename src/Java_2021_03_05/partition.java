@@ -1,5 +1,7 @@
 package Java_2021_03_05;
 
+import static sun.misc.Version.print;
+
 public class partition {
     // 题目要求：给定一个链表，并给定一个值x，建行链表中的所有小于x的值放在链表的前边，所有大于x的值放在后边
     // 思路：创建两个链表，smallList和largeList让带上傀儡节点，为了方便后边插入
@@ -36,6 +38,12 @@ public class partition {
         // 下边对两个链表进行拼接
         smallTail.next = largeHead.next;// 因为是带傀儡节点的,要将傀儡节点后边的那个值插入
         // 要返回那个新的链表，就要跨过傀儡节点
+        createNodeList.print(smallHead.next);
         return smallHead.next;
+    }
+
+    public static void main(String[] args) {
+        createNodeList.createNodeList();
+
     }
 }

@@ -14,6 +14,15 @@ public class createNodeList {
         e.next = null;
         return a;
     }
+    public static Node createList2() {
+        Node a = new Node(3);
+        Node b = new Node(5);
+        Node c = new Node(8);
+        a.next = b;
+        b.next = c;
+        c.next = null;
+        return a;
+    }
 
     public static void print(Node head) {
         for (Node cur = head; cur != null; cur = cur.next) {

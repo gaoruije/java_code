@@ -13,23 +13,38 @@ public class returnListCycle {
             fast = fast.next.next;
             slow = slow.next;
             if (fast == slow) {
-                // 这里不能直接返回节点,后边还是要用这个节点的
                 break;
             }
         }
-        // 3.判断出了循环的原因：出了上边的循环，一种是fast为空了，一种是找到交汇点了，下边进行判断一下
-        if (fast != null && fast.next != null) {// 链表没有带坏
+        if (fast == null || fast.next == null) {
             return null;
         }
-        // 4.下边就一定带环了，让两个引用来从头节点和交汇节点出发，要是相遇就返回节点
+        // 出了循环说明，两个引用地址相同了，就是环的入口点
         Node cur1 = head;
         Node cur2 = fast;
-        // 5.当两个引用不相等时，更新引用指向
-        while (cur1 != cur2) {// 判断带环比较的是引用的值
+        while (cur1 != cur2) {
             cur1 = cur1.next;
             cur2 = cur2.next;
         }
-        // 出了循环说明，两个引用地址相同了，就是环的入口点
         return cur1;
+    }
+
+    public static Node createList() {
+        Node a = new Node(1);
+        Node b = new Node(2);
+        Node c = new Node(2);
+        Node d = new Node(4);
+        Node e = new Node(5);
+        a.next = b;
+        b.next = c;
+        c.next = d;
+        d.next = e;
+        e.next = c;
+        return a;
+    }
+
+    public static void main(String[] args) {
+        Node head = createList();
+        System.out.println(returnListCycle(head));
     }
 }
