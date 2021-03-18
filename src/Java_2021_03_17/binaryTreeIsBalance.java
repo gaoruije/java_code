@@ -33,7 +33,7 @@ public class binaryTreeIsBalance {
         if (root.left == null && root.right == null) {
             return true;
         }
-        // 2.一般情况处理
+        // 2.一般情况的处理
         int leftHeight = getHeight(root.left);
         int rightHeight = getHeight(root.right);
         if ((leftHeight - rightHeight) > 1 || (leftHeight - rightHeight) < -1) {
