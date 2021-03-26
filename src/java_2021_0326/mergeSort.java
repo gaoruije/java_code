@@ -34,7 +34,7 @@ public class mergeSort {
                 temp[tempIndex] = arr[cur1];
                 cur1 ++;
                 tempIndex ++;
-            } else {
+            } else {// 将cur2插入到数组的后边
                 temp[tempIndex] = arr[cur2];
                 cur2 ++;
                 tempIndex ++;
